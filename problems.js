@@ -96,10 +96,7 @@ function countConsonants(word) {
     const vowels = ["a", "e", "i", "o", "u"];
     let count = 0;
     for (let i = 0; i < word.length; i++) {
-        if (vowels.includes(word[i])) {
-            count = count + 0
-        }
-        else {
+        if (!vowels.includes(word[i]) && word[i] !== ' ') {
             count++;
         }
     }
@@ -123,8 +120,18 @@ function countConsonants(word) {
     `.split('')` function on strings to make a copy of the string as an array.
     The `.join('')` function joins the elements in an array into a string.
 */
+
 function alternatingLetters(str) {
-    return str.toLowerCase();
+  let arr = str.split('');
+  let newStr = '';
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      newStr += arr[i].toLowerCase();
+    } else {
+      newStr += arr[i].toUpperCase();
+    }
+  }
+  return newStr;
 }
 
 
@@ -137,7 +144,3 @@ module.exports = {
     countConsonants,
     alternatingLetters
 }
-
-
-
-
